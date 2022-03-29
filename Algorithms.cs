@@ -96,5 +96,27 @@ namespace Algorithms
             }
         }
 
+        public int binarySearch(ref int[] arr, int n, int elem)
+        {
+            int mid, start = 0, end = n - 1;
+            while (start <= end)
+            {
+                mid = (start + end) / 2;
+                if (elem == arr[mid])
+                {
+                    return mid;
+                }
+                else if (elem < arr[mid])
+                {
+                    end = mid - 1;
+                }
+                else
+                {
+                    start = mid + 1;
+                }
+            }
+            return -1;
+        }
+
     }
 }
