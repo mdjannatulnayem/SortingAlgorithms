@@ -7,7 +7,7 @@ namespace Algorithms
 {
     public class Algorithms
     {
-        public void swap(ref int elem1,ref int elem2)
+        private void swap(ref int elem1,ref int elem2)
         {
             int t = elem1;
             elem1 = elem2;
@@ -67,7 +67,7 @@ namespace Algorithms
             }
         }
 
-        public int partition(ref int[] arr, int start, int end)
+        private int partition(ref int[] arr, int start, int end)
         {
             int i = start - 1;
             for (int j = start; j < end; j++)
@@ -96,12 +96,63 @@ namespace Algorithms
             }
         }
 
+        private void conquer(ref int[] arr, int start, int mid, int end)
+        {
+            int len = end - start + 1;
+            int[] merged = new int[len];
+            int x = 0, index1 = start, index2 = mid + 1;
+            while (index1 <= mid && index2 <= end)
+            {
+                if (arr[index1] <= arr[index2])
+                {
+                    merged[x++] = arr[index1++];
+                }
+                else
+                {
+                    merged[x++] = arr[index2++];
+                }
+            }
+
+            while (index1 <= mid)
+            {
+                merged[x++] = arr[index1++];
+            }
+
+            while (index2 <= end)
+            {
+                merged[x++] = arr[index2++];
+            }
+
+            for (int i = 0, j = start; i < len; i++, j++)
+            {
+                arr[j] = merged[i];
+            }
+
+        }
+
+        private void divide(ref int[] arr, int start, int end)
+        {
+            if (start >= end)
+            {
+                return;
+            }
+            int mid = start + (end - start) / 2;
+            divide(ref arr, start, mid);
+            divide(ref arr, mid + 1, end);
+            conquer(ref arr, start, mid, end);
+        }
+
+        public void mergeSort(ref int[] arr, int start, int end)
+        {
+            divide(ref arr, start, end);
+        }
+
         public int binarySearch(ref int[] arr, int n, int elem)
         {
             int mid, start = 0, end = n - 1;
             while (start <= end)
             {
-                mid = (start + end) / 2;
+                mid = start + (end - start) / 2;
                 if (elem == arr[mid])
                 {
                     return mid;
