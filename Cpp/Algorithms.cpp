@@ -125,3 +125,6 @@ void Algorithms::quickSort(int arr[],int start,int end){
 void Algorithms::mergeSort(int arr[],int start,int end){
     divide(arr,start,end);
 }
+
+
+//CLASS IMPLEMENTATION
