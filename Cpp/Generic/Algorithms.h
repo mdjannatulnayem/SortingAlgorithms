@@ -43,12 +43,12 @@ class Algorithms{
     }
 
     void selectionSort(U arr[],int n){
-        U min;
+        int min;
         for(int i=0;i<n-1;i++){
-            min=(U)i;
+            min=i;
             for(int j=i+1;j<n;j++){
                 if(arr[j]<arr[min]){
-                    min=(U)j;
+                    min=j;
                 }
             }
             std::swap(arr[min],arr[i]);
