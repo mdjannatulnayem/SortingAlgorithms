@@ -1,5 +1,6 @@
 
-//CLASS DECLARATION + IMPLEMENTAION
+//Generic class
+//Pending.....!
 
 using System;
 using System.Collections.Generic;
@@ -7,16 +8,16 @@ using System.Linq;
 
 namespace Algorithms
 {
-    public class Algorithms
+    public class Algorithms<U>
     {
-        private void swap(ref int elem1,ref int elem2)
+        private void swap(ref U elem1,ref U elem2)
         {
-            int t = elem1;
+            U t = elem1;
             elem1 = elem2;
             elem2 = t;
         }
 
-        public void bubbleSort(ref int[] arr, int n)
+        public void bubbleSort(ref U[] arr, int n)
         {
             bool isSorted;
             for (int i = 0; i < n; i++)
@@ -37,28 +38,28 @@ namespace Algorithms
             }
         }
 
-        public void selectionSort(ref int[] arr, int n)
+        public void selectionSort(ref U[] arr, int n)
         {
-            int min;
+            U min;
             for (int i = 0; i < n - 1; i++)
             {
-                min = i;
+                min = (U)i;
                 for (int j = i + 1; j < n; j++)
                 {
                     if (arr[j] < arr[min])
                     {
-                        min = j;
+                        min = (U)j;
                     }
                 }
                 swap(ref arr[min],ref arr[i]);
             }
         }
 
-        public void insertionSort(ref int[] arr, int n)
+        public void insertionSort(ref U[] arr, int n)
         {
             for (int i = 1; i < n; i++)
             {
-                int current = arr[i];
+                U current = arr[i];
                 int j = i - 1;
                 while (j >= 0 && arr[j] > current)
                 {
@@ -69,7 +70,7 @@ namespace Algorithms
             }
         }
 
-        private int partition(ref int[] arr, int start, int end)
+        private int partition(ref U[] arr, int start, int end)
         {
             int i = start - 1;
             for (int j = start; j < end; j++)
@@ -86,22 +87,21 @@ namespace Algorithms
             //returning pivot index!
         }
 
-        public void quickSort(ref int[] arr, int start, int end)
+        public void quickSort(ref U[] arr, int start, int end)
         {
-            int pivot;
             if (start < end)
             {
-                pivot = partition(ref arr, start, end);
+                int pivot = partition(ref arr, start, end);
                 //recursive calls after partition!
                 quickSort(ref arr, pivot + 1, end);
                 quickSort(ref arr, start, pivot - 1);
             }
         }
 
-        private void conquer(ref int[] arr, int start, int mid, int end)
+        private void conquer(ref U[] arr, int start, int mid, int end)
         {
             int len = end - start + 1;
-            int[] merged = new int[len];
+            U[] merged = new U[len];
             int x = 0, index1 = start, index2 = mid + 1;
             while (index1 <= mid && index2 <= end)
             {
@@ -132,7 +132,7 @@ namespace Algorithms
 
         }
 
-        private void divide(ref int[] arr, int start, int end)
+        private void divide(ref U[] arr, int start, int end)
         {
             if (start >= end)
             {
@@ -144,12 +144,12 @@ namespace Algorithms
             conquer(ref arr, start, mid, end);
         }
 
-        public void mergeSort(ref int[] arr, int start, int end)
+        public void mergeSort(ref U[] arr, int start, int end)
         {
             divide(ref arr, start, end);
         }
 
-        public int binarySearch(ref int[] arr, int n, int elem)
+        public int binarySearch(ref U[] arr, int n, int elem)
         {
             int mid, start = 0, end = n - 1;
             while (start <= end)
