@@ -7,17 +7,17 @@ class Algorithms{
 
     public:
         //PUBLIC METHODS
-    int binarySearch(int arr[],int n,int elem);
+    static int binarySearch(int arr[],int n,int elem);
 
-    void bubbleSort(int arr[],int n);
+    static void bubbleSort(int arr[],int n);
 
-    void selectionSort(int arr[],int n);
+    static void selectionSort(int arr[],int n);
 
-    void insertionSort(int arr[],int n);
+    static void insertionSort(int arr[],int n);
 
-    void quickSort(int arr[],int start,int end);
+    static void quickSort(int arr[],int start,int end);
 
-    void mergeSort(int arr[],int start,int end);
+    static void mergeSort(int arr[],int start,int end);
 
     private:
         //INNER FUNCTIONALITIES
