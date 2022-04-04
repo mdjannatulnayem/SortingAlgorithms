@@ -7,16 +7,16 @@ using System.Linq;
 
 namespace Algorithms
 {
-    public class Algorithms
+    public static class Algorithms
     {
-        private void swap(ref int elem1,ref int elem2)
+        private static void swap(ref int elem1,ref int elem2)
         {
             int t = elem1;
             elem1 = elem2;
             elem2 = t;
         }
 
-        public void bubbleSort(ref int[] arr, int n)
+        public static void bubbleSort(ref int[] arr, int n)
         {
             bool isSorted;
             for (int i = 0; i < n; i++)
@@ -37,7 +37,7 @@ namespace Algorithms
             }
         }
 
-        public void selectionSort(ref int[] arr, int n)
+        public static void selectionSort(ref int[] arr, int n)
         {
             int min;
             for (int i = 0; i < n - 1; i++)
@@ -54,12 +54,12 @@ namespace Algorithms
             }
         }
 
-        public void insertionSort(ref int[] arr, int n)
+        public static void insertionSort(ref int[] arr, int n)
         {
             for (int i = 1; i < n; i++)
             {
-                int current = arr[i];
                 int j = i - 1;
+                int current = arr[i];
                 while (j >= 0 && arr[j] > current)
                 {
                     arr[j + 1] = arr[j];
@@ -69,7 +69,7 @@ namespace Algorithms
             }
         }
 
-        private int partition(ref int[] arr, int start, int end)
+        private static int partition(ref int[] arr, int start, int end)
         {
             int i = start - 1;
             for (int j = start; j < end; j++)
@@ -86,7 +86,7 @@ namespace Algorithms
             //returning pivot index!
         }
 
-        public void quickSort(ref int[] arr, int start, int end)
+        public static void quickSort(ref int[] arr, int start, int end)
         {
             if (start < end)
             {
@@ -97,7 +97,7 @@ namespace Algorithms
             }
         }
 
-        private void conquer(ref int[] arr, int start, int mid, int end)
+        private static void conquer(ref int[] arr, int start, int mid, int end)
         {
             int len = end - start + 1;
             int[] merged = new int[len];
@@ -131,7 +131,7 @@ namespace Algorithms
 
         }
 
-        private void divide(ref int[] arr, int start, int end)
+        private static void divide(ref int[] arr, int start, int end)
         {
             if (start >= end)
             {
@@ -143,12 +143,12 @@ namespace Algorithms
             conquer(ref arr, start, mid, end);
         }
 
-        public void mergeSort(ref int[] arr, int start, int end)
+        public static void mergeSort(ref int[] arr, int start, int end)
         {
             divide(ref arr, start, end);
         }
 
-        public int binarySearch(ref int[] arr, int n, int elem)
+        public static int binarySearch(ref int[] arr, int n, int elem)
         {
             int mid, start = 0, end = n - 1;
             while (start <= end)
@@ -169,8 +169,10 @@ namespace Algorithms
             }
             return -1;
         }
+        
 
-    }
+    } //ENDOF CLASS DEFINITION
+    
 }
 
 
