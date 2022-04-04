@@ -9,10 +9,10 @@ class Algorithms{
 
     public:
         //PUBLIC METHODS
-    int binarySearch(U arr[],int n,int elem){
+    static int binarySearch(U arr[],int n,int elem){
         int mid,start=0,end=n-1;
         while(start<=end){
-            mid=start + (end - start) / 2;
+            mid = start+(end-start)/2;
             if(elem==arr[mid]){
                 return mid;
             }
@@ -26,7 +26,7 @@ class Algorithms{
         return -1;
     }
 
-    void bubbleSort(U arr[],int n){
+    static void bubbleSort(U arr[],int n){
         bool isSorted;
         for(int i=0;i<n;i++){
             isSorted=true;
@@ -42,7 +42,7 @@ class Algorithms{
         }
     }
 
-    void selectionSort(U arr[],int n){
+    static void selectionSort(U arr[],int n){
         int min;
         for(int i=0;i<n-1;i++){
             min=i;
@@ -55,9 +55,11 @@ class Algorithms{
         }
     }
 
-    void insertionSort(U arr[],int n){
+    static void insertionSort(U arr[],int n){
+        int j;U current;
         for(int i=1;i<n;i++){
-            int current=arr[i],j=i-1;
+            j=i-1;
+            current=arr[i];
             while(j>=0&&arr[j]>current){
                 arr[j+1]=arr[j];
                 j--;
@@ -66,7 +68,7 @@ class Algorithms{
         }
     }
 
-    void quickSort(U arr[],int start,int end){
+    static void quickSort(U arr[],int start,int end){
         int pivot;
         if(start<end){
             pivot=partition(arr,start,end);
@@ -75,7 +77,7 @@ class Algorithms{
         }
     }
 
-    void mergeSort(U arr[],int start,int end){
+    static void mergeSort(U arr[],int start,int end){
         divide(arr,start,end);
     }
 
@@ -124,7 +126,7 @@ class Algorithms{
         if(start>=end){
             return;
         }
-        int mid = start + (end - start) / 2;
+        int mid = start+(end-start)/2;
         divide(arr,start,mid);
         divide(arr,mid+1,end);
         conquer(arr,start,mid,end);
