@@ -8,16 +8,16 @@ using System.Linq;
 
 namespace Algorithms
 {
-    public class Algorithms<U>
+    public static class Algorithms<U>
     {
-        private void swap(ref U elem1,ref U elem2)
+        private static void swap(ref U elem1,ref U elem2)
         {
             U t = elem1;
             elem1 = elem2;
             elem2 = t;
         }
 
-        public void bubbleSort(ref U[] arr, int n)
+        public static void bubbleSort(ref U[] arr, int n)
         {
             bool isSorted;
             for (int i = 0; i < n; i++)
@@ -38,7 +38,7 @@ namespace Algorithms
             }
         }
 
-        public void selectionSort(ref U[] arr, int n)
+        public static void selectionSort(ref U[] arr, int n)
         {
             int min;
             for (int i = 0; i < n - 1; i++)
@@ -55,7 +55,7 @@ namespace Algorithms
             }
         }
 
-        public void insertionSort(ref U[] arr, int n)
+        public static void insertionSort(ref U[] arr, int n)
         {
             U current;int j;
             for (int i = 1; i < n; i++)
@@ -71,7 +71,7 @@ namespace Algorithms
             }
         }
 
-        private int partition(ref U[] arr, int start, int end)
+        private static int partition(ref U[] arr, int start, int end)
         {
             int i = start - 1;
             for (int j = start; j < end; j++)
@@ -88,7 +88,7 @@ namespace Algorithms
             //returning pivot index!
         }
 
-        public void quickSort(ref U[] arr, int start, int end)
+        public static void quickSort(ref U[] arr, int start, int end)
         {
             if (start < end)
             {
@@ -99,7 +99,7 @@ namespace Algorithms
             }
         }
 
-        private void conquer(ref U[] arr, int start, int mid, int end)
+        private static void conquer(ref U[] arr, int start, int mid, int end)
         {
             int len = end - start + 1;
             U[] merged = new U[len];
@@ -133,7 +133,7 @@ namespace Algorithms
 
         }
 
-        private void divide(ref U[] arr, int start, int end)
+        private static void divide(ref U[] arr, int start, int end)
         {
             if (start >= end)
             {
@@ -145,12 +145,12 @@ namespace Algorithms
             conquer(ref arr, start, mid, end);
         }
 
-        public void mergeSort(ref U[] arr, int start, int end)
+        public static void mergeSort(ref U[] arr, int start, int end)
         {
             divide(ref arr, start, end);
         }
 
-        public int binarySearch(ref U[] arr, int n, int elem)
+        public static int binarySearch(ref U[] arr, int n, int elem)
         {
             int mid, start = 0, end = n - 1;
             while (start <= end)
@@ -172,7 +172,8 @@ namespace Algorithms
             return -1;
         }
 
-    }
+    }//ENDOF CLASS DEFINITION
+    
 }
 
 
