@@ -1,4 +1,5 @@
-//CLASS DEFINITION
+//CLASS DECLARATION 
+// + IMPLEMENTATION
 
 #include <iostream>
 #ifndef ALGORITHMS_H
