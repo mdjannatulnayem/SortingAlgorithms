@@ -23,7 +23,7 @@ void Algorithms::divide(int arr[],int start,int end){
     if(start>=end){
         return;
     }
-    int mid = start + (end - start) / 2;
+    int mid = start+(end-start)/2;
     divide(arr,start,mid);
     divide(arr,mid+1,end);
     conquer(arr,start,mid,end);
@@ -56,10 +56,10 @@ void Algorithms::conquer(int arr[],int start,int mid,int end){
 }
 
 
-int Algorithms::binarySearch(int arr[],int n,int elem){
+static int Algorithms::binarySearch(int arr[],int n,int elem){
     int mid,start=0,end=n-1;
     while(start<=end){
-        mid=start + (end - start) / 2;
+        mid = start+(end-start)/2;
         if(elem==arr[mid]){
             return mid;
         }
@@ -73,7 +73,7 @@ int Algorithms::binarySearch(int arr[],int n,int elem){
     return -1;
 }
 
-void Algorithms::bubbleSort(int arr[],int n){
+static void Algorithms::bubbleSort(int arr[],int n){
     bool isSorted;
     for(int i=0;i<n;i++){
         isSorted=true;
@@ -89,7 +89,7 @@ void Algorithms::bubbleSort(int arr[],int n){
     }
 }
 
-void Algorithms::selectionSort(int arr[],int n){
+static void Algorithms::selectionSort(int arr[],int n){
     int min;
     for(int i=0;i<n-1;i++){
         min=i;
@@ -102,9 +102,10 @@ void Algorithms::selectionSort(int arr[],int n){
     }
 }
 
-void Algorithms::insertionSort(int arr[],int n){
+static void Algorithms::insertionSort(int arr[],int n){
+    U current;int j;
     for(int i=1;i<n;i++){
-        int current=arr[i],j=i-1;
+        j=i-1;current=arr[i];
         while(j>=0&&arr[j]>current){
             arr[j+1]=arr[j];
             j--;
@@ -113,16 +114,15 @@ void Algorithms::insertionSort(int arr[],int n){
     }
 }
 
-void Algorithms::quickSort(int arr[],int start,int end){
-    int pivot;
+static void Algorithms::quickSort(int arr[],int start,int end){
     if(start<end){
-        pivot=partition(arr,start,end);
+        int pivot=partition(arr,start,end);
         quickSort(arr,pivot+1,end);
         quickSort(arr,start,pivot-1);
     }
 }
 
-void Algorithms::mergeSort(int arr[],int start,int end){
+static void Algorithms::mergeSort(int arr[],int start,int end){
     divide(arr,start,end);
 }
 
