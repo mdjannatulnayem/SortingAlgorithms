@@ -103,7 +103,7 @@ static void Algorithms::selectionSort(int arr[],int n){
 }
 
 static void Algorithms::insertionSort(int arr[],int n){
-    U current;int j;
+    int current,j;
     for(int i=1;i<n;i++){
         j=i-1;current=arr[i];
         while(j>=0&&arr[j]>current){
