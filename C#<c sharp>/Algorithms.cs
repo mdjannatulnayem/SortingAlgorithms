@@ -1,6 +1,4 @@
 
-//CLASS DECLARATION + IMPLEMENTAION
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -171,9 +169,7 @@ namespace Algorithms
         }
         
 
-    } //ENDOF CLASS DEFINITION
+    }
     
 }
 
-
-//CLASS DECLARATION + IMPLEMENTAION
